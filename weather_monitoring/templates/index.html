@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Monitoring Dashboard</h1>
+    
+    <h2>Daily Summaries</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>City</th>
+                <th>Average Temp (°C)</th>
+                <th>Max Temp (°C)</th>
+                <th>Min Temp (°C)</th>
+                <th>Dominant Weather</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for summary in summaries %}
+            <tr>
+                <td>{{ summary[0] }}</td>
+                <td>{{ summary[1] }}</td>
+                <td>{{ summary[2] }}</td>
+                <td>{{ summary[3] }}</td>
+                <td>{{ summary[4] }}</td>
+                <td>{{ summary[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Weather Summary Plot</h2>
+    <img src="{{ plot_path }}" alt="Daily Weather Summary Plot" />
+
+</body>
+</html>
